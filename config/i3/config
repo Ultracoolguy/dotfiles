@@ -73,6 +73,7 @@ exec nvidia-settings -a GPUMemoryTransferRateOffsetAllPerformanceLevels=500
 set_from_resource $fg i3wm.color7 #f0f0f0
 set_from_resource $bg i3wm.color4 #f0f0f0
 
+
 # class                 border  backgr. text indicator child_border
 client.focused          $bg     $bg     $fg  $bg       $bg
 client.focused_inactive $bg     $bg     $fg  $bg       $bg
@@ -187,7 +188,7 @@ bindsym $mod+Shift+n		floating toggle; sticky toggle; exec --no-startup-id hover
 bindsym $mod+m 			exec --no-startup-id $term -e ncmpcpp
 bindsym $mod+Shift+m		exec --no-startup-id lmc mute
 
-
+bindsym $mod+comma 		exec --no-startup-id socialmedia
 # #---Workspace Bindings---# #
 bindsym $mod+Home		workspace $ws1
 bindsym $mod+Shift+Home		move container to workspace $ws1

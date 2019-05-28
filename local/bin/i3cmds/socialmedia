@@ -1,0 +1,10 @@
+#!/bin/sh
+chosen=$(echo -e "rtv-reddit\ndiscord-terminal\nnewsboat" | sort | dmenu -i -p "Select Social Media:")
+
+case "$chosen" in
+	rtv-reddit) st -e rtv ;;
+	discord-terminal) st -e discord-terminal ;;
+esac
+
+
+
