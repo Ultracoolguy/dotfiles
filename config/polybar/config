@@ -18,27 +18,35 @@
 
 [colors]
 background = ${xrdb:color0:#222}
+background-transparent = #AA263238
 background-alt = ${xrdb:color0:#222}
 foreground = ${xrdb:color4:#222}
-foreground-alt = ${xrdb:color7:#222}
+foreground-alt = ${xrdb:color6:#222}
 primary = ${xrdb:color1:#222}
 secondary = ${xrdb:color2:#222}
+tertiary = ${xrdb:color3:#222}
+quarternary = ${xrdb:color4:#222}
+quinary = ${xrdb:color5:#222}
+senary = ${xrdb:color6:#222}
+septenary = ${xrdb:color7:#222}
+octonary = ${xrdb:color8:#222}
+
 alert = #f00
 
-[bar/mybar]
+[bar/top]
 monitor =
 monitor-fallback =
 monitor-strict = false
-#override-redirect = false
 bottom = false
 fixed-center = true
 width = 100%
 height = 27
 offset-x = 0
 offset-y = 0
-background = ${colors.background}
-foreground = ${colors.foreground}
-radius = 05
+;background = ${colors.background}
+background = #0000000
+foreground = ${colors.primary}
+radius = 00
 line-size = 1
 line-color = #f00
 border-color =
@@ -46,25 +54,43 @@ padding =
 module-margin = 2
 font-0 = Hack:size=7
 font-1 = Weather Icons:size=12
-font-2 = materialdesignicons-webfont:size=12
-font-3 = Emoji One:style=Regular:scale=10
-font-4 = FontAwesome:style=Regular:scale=12
-modules-left = i3 openweathermap-simple notification-reddit
-modules-center = mpd xwindow
+font-2 = FontAwesome:style=Regular:scale=12
+font-3 = materialdesignicons-webfont:size=12
+font-4 = Emoji One:style=Regular:scale=10
+
+modules-left = i3 openweathermap-simple notification-reddit xwindow
+modules-center = mpd
 modules-right = updates-arch-combined pulseaudio date calendar
 separator =
 dim-value = 1.0
 wm-name =
 locale = en_US.UTF-8
-tray-detached = false
-tray-maxsize = 16
 dpi-x = 96
 dpi-y = 96
 
+[bar/bottom]
+monitor =
+monitor-fallback =
+monitor-strict = false
+bottom = true
+width = 100%
+height = 27
+background = #00000000
+foreground = #00000000
+modules-left = dummy
+tray-position = right
+tray-background = ${colors.background}
+tray-padding = 2
+tray-scale = 1.0
+tray-detached = false
+tray-maxsize = 16
 
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:30:...%
+label-background = ${colors.background-transparent}
+label-underline = ${colors.quarternary}
+label-padding = 2
 
 [module/xkeyboard]
 type = internal/xkeyboard
@@ -96,7 +122,7 @@ label-unmounted-foreground = ${colors.foreground-alt}
 type = internal/bspwm
 
 label-focused = %index%
-label-focused-background = ${colors.primary}
+label-focused-background = ${colors.background-transparent}
 label-focused-underline= ${colors.primary}
 label-focused-padding = 2
 
@@ -134,7 +160,7 @@ label-focused-underline = ${module/bspwm.label-focused-underline}
 label-focused-padding = ${module/bspwm.label-focused-padding}
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = %index%
+label-unfocused = %{B#AAa0f14} %index%
 label-unfocused-padding = ${module/bspwm.label-occupied-padding}
 ${colors.background}
 ; visible = Active workspace on unfocused monitor
@@ -248,41 +274,59 @@ interval = 1
 date = %d-%m-%Y
 time = %I:%M
 
-format-prefix =🕒
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #0a6cf5
+format-prefix = "肋"
+; format-prefix-foreground = ${colors.foreground-alt}
+format-underline = ${colors.senary}
+format-background = ${colors.background-transparent}
 
 label = %date% %time%
+label-background = ${colors.background-transparent}
+label-padding = 1
 
 [module/pulseaudio]
 type = internal/pulseaudio
 
-format-volume = <label-volume> <bar-volume>
-label-volume = VOL %percentage%%
-label-volume-foreground = ${root.foreground}
+; format-volume = <label-volume> <bar-volume>
+; label-volume = VOL %percentage%%
+; label-volume-foreground = ${root.foreground}
+; label-volume-underline = ${colors.quarternary}
+; label-volume-background = ${colors.background-transparent}
+format-volume = <label-volume>
+ format-volume-prefix = ""
+ format-volume-background = ${colors.background-transparent}
+ format-volume-underline = ${colors.quinary}
+ format-volume-padding = 1
+
 
 label-muted = 🔇 muted
 label-muted-foreground = #666
+label-muted-underline = ${colors.quinary}
+label-muted-background = ${colors.background-transparent}
+label-muted-padding = 1
 
-bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 2
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
+; bar-volume-width = 10
+; bar-volume-foreground-0 = #55aa55
+; bar-volume-foreground-1 = #55aa55
+; bar-volume-foreground-2 = #55aa55
+; bar-volume-foreground-3 = #55aa55
+; bar-volume-foreground-4 = #55aa55
+; bar-volume-foreground-5 = #f5a70a
+; bar-volume-foreground-6 = #ff5555
+; bar-volume-gradient = false
+; bar-volume-indicator = |
+; bar-volume-indicator-font = 2
+; bar-volume-fill = ─
+; bar-volume-fill-font = 2
+; bar-volume-empty = ─
+; bar-volume-empty-font = 2
+; bar-volume-empty-foreground = ${colors.foreground-alt}
+; bar-volume-background = ${colors.background-transparent}
+; bar-volume-fill-background = ${colors.background-transparent}
+; bar-volume-empty-background = ${colors.background-transparent}
+; bar-volume-indicator-background = ${colors.background-transparent}
 
 [module/alsa]
-type = internal/alsa
+ type = internal/alsa
 
 format-volume = <label-volume> <bar-volume>
 label-volume = VOL
@@ -308,6 +352,7 @@ bar-volume-fill-font = 2
 bar-volume-empty = ─
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
+
 
 master-soundcard=hw:0
 [module/battery]
@@ -397,25 +442,31 @@ exec = ~/.config/polybar/polybar-scripts/openweathermap-simple/openweathermap-si
 interval = 600
 click-left = $TERMINAL -e less -S /tmp/weatherreport
 label-font = 1
+label-padding = 1
+label-background = #CC263238
+label-underline = ${colors.secondary}
 
 [module/notification-reddit]
 type = custom/script
 exec = ~/.config/polybar/polybar-scripts/notification-reddit/notification-reddit.sh
 click-left = $BROWSER https://old.reddit.com/message/inbox
 interval = 100
-label-foreground = ${colors.secondary}
+;label-foreground =${colors.secondary}
+
+
 
 [module/updates-arch-combined]
 type = custom/script
 exec = ~/.config/polybar/polybar-scripts/updates-arch-combined/updates-arch-combined.sh
 interval = 100
 click-left = $TERMINAL yay
+label-background = ${colors.background-transparent}
+label-underline = ${colors.tertiary}
+label-padding = 1
 
-[module/calendar]
-type = custom/date
-format-prefix = 📆
-interval = 10000
-click-left = $TERMINAL ikhal
+[module/dummy]
+type = custom/text
+content = "Dummy".
 
 [settings]
 screenchange-reload = true
@@ -423,7 +474,7 @@ screenchange-reload = true
 ;compositing-background = screen
 ;compositing-foreground = source
 ;compositing-border = over
-pseudo-transparency = true
+;pseudo-transparency = true
 
 [global/wm]
 margin-top = 5
