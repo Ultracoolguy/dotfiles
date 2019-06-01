@@ -1,13 +1,13 @@
 #!/bin/sh
 # Profile file. Runs on login.
 
-# Adds `~/.scripts` and all subdirectories to $PATH
+# Adds `~/.local/bin` and all subdirectories to $PATH
+export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 export EDITOR="nvim"
 export TERMINAL="st"
 export BROWSER="firefox"
-export FILE="ranger"
-export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 export READER="zathura"
+export FILE="ranger"
 export BIB="$HOME/Documents/LaTeX/uni.bib"
 export REFER="$HOME/Documents/referbib"
 export SUDO_ASKPASS="$HOME/.local/bin/tools/dmenupass"
@@ -26,8 +26,7 @@ export LESS_TERMCAP_ue="$(printf '%b' '[0m')"; a="${a%_}"
 
 [ ! -f ~/.config/shortcutrc ] && shortcuts >/dev/null 2>&1
 
-#Unquoting this due to zsh
-#echo "$0" | grep "bash$" >/dev/null && [ -f ~/.bashrc ] && source "$HOME/.bashrc"
+echo "$0" | grep "bash$" >/dev/null && [ -f ~/.bashrc ] && source "$HOME/.bashrc"
 
 # Start graphical server if i3 not already running.
 [ "$(tty)" = "/dev/tty1" ] && ! pgrep -x i3 >/dev/null && exec startx
