@@ -45,7 +45,7 @@ offset-x = 0
 offset-y = 0
 ;background = ${colors.background}
 background = #0000000
-foreground = ${colors.primary}
+foreground = ${colors.tertiary}
 radius = 00
 line-size = 1
 line-color = #f00
@@ -54,9 +54,8 @@ padding =
 module-margin = 2
 font-0 = Hack:size=7
 font-1 = Weather Icons:size=12
-font-2 = FontAwesome:style=Regular:scale=12
-font-3 = materialdesignicons-webfont:size=12
-font-4 = Emoji One:style=Regular:scale=10
+font-2 = materialdesignicons-webfont:size=12
+font-3 = Emoji One:style=Regular:scale=10
 
 modules-left = i3 openweathermap-simple notification-reddit xwindow
 modules-center = mpd
@@ -67,6 +66,13 @@ wm-name =
 locale = en_US.UTF-8
 dpi-x = 96
 dpi-y = 96
+tray-position = right
+tray-background = ${colors.background}
+tray-padding = 2
+tray-scale = 1.0
+tray-detached = false
+tray-maxsize = 16
+
 
 [bar/bottom]
 monitor =
@@ -440,7 +446,7 @@ menu-2-1-exec = menu-open-0
 type = custom/script
 exec = ~/.config/polybar/polybar-scripts/openweathermap-simple/openweathermap-simple.sh
 interval = 600
-click-left = $TERMINAL -e less -S /tmp/weatherreport
+click-left =$TERMINAL -e less -S ~/.local/share/weatherreport
 label-font = 1
 label-padding = 1
 label-background = #CC263238
@@ -451,7 +457,10 @@ type = custom/script
 exec = ~/.config/polybar/polybar-scripts/notification-reddit/notification-reddit.sh
 click-left = $BROWSER https://old.reddit.com/message/inbox
 interval = 100
-;label-foreground =${colors.secondary}
+;label-foreground =${colors.primary}
+label-background = ${colors.background-transparent}
+label-underline = ${colors.primary}
+label-padding = 1
 
 
 
