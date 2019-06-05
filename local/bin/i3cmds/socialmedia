@@ -1,8 +1,9 @@
 #!/bin/sh
-chosen=$(echo -e "rtv-reddit\ndiscord-terminal\nnewsboat" | sort | dmenu -i -p "Select Social Media:")
+chosen=$(echo -e "rtv-reddit\nbrowser-reddit\ndiscord-terminal" | sort | dmenu -i -p "Select Social Media:")
 
 case "$chosen" in
 	rtv-reddit) st -e rtv ;;
+	browser-reddit) firefox -P Social-Media https://old.reddit.com ;;
 	discord-terminal) st -e discord-terminal ;;
 esac
 
