@@ -44,6 +44,8 @@ super + x
 XF86Launch1
 	xset dpms force off
 
+super + period
+	socialmedia
 # Recording
 # Take screenshot
 Print
