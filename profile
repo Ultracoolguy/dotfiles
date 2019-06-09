@@ -7,7 +7,7 @@ export EDITOR="nvim"
 export TERMINAL="st"
 export BROWSER="firefox"
 export READER="zathura"
-export FILE="ranger"
+export FILE="vifm"
 export BIB="$HOME/Documents/LaTeX/uni.bib"
 export REFER="$HOME/Documents/referbib"
 export SUDO_ASKPASS="$HOME/.local/bin/tools/dmenupass"
@@ -26,7 +26,10 @@ export LESS_TERMCAP_ue="$(printf '%b' '[0m')"; a="${a%_}"
 
 [ ! -f ~/.config/shortcutrc ] && shortcuts >/dev/null 2>&1
 
-
+#Add a function for reading markdown files(inspired by https://tosbourn.com/view-markdown-files-terminal/)
+wmd () {
+	pandoc $1 | lynx -stdin
+}
 # Start graphical server if i3 not already running.
 
 if [ "$(tty)" = "/dev/tty1" ]; then
