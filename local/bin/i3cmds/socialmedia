@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 chosen=$(echo -e "rtv-reddit\nbrowser-reddit\ndiscord-terminal" | sort | dmenu -i -p "Select Social Media:")
 
 case "$chosen" in

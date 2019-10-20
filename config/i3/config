@@ -10,9 +10,11 @@
 # #---Basic Definitions---# #
 for_window [class="^.*"] border pixel 2
 gaps inner 05
-gaps outer 05
+gaps outer 00
+smart_gaps on
 set $term --no-startup-id $TERMINAL
 set $mod Mod4
+font pango:Roboto 10
 
 # #---Dropdown Windows---# #
 # General dropdown window traits. The order can matter.
@@ -34,7 +36,8 @@ for_window [instance="dropdown_*"] move position center
 #	modifier None
 #}
 bar {
-	i3bar_command sh ~/.config/polybar/launch-top.sh
+	i3bar_command exec ~/.config/polybar/launch-top.sh
+	tray_output primary
 }
 
 # bar {
@@ -110,8 +113,10 @@ bindsym $mod+v			exec --no-startup-id $term -e $EDITOR -c "VimwikiIndex"
 
 bindsym $mod+b			bar mode toggle
 bindsym $mod+Shift+b		floating toggle; sticky toggle; exec --no-startup-id hover left
-
 bindsym $mod+Shift+n		floating toggle; sticky toggle; exec --no-startup-id hover right
+
+bindsym $mod+w			layout toggle tabbed split
+
 
 # #---Workspace Bindings---# #
 bindsym $mod+Home		workspace $ws1

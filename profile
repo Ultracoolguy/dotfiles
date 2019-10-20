@@ -13,6 +13,7 @@ export REFER="$HOME/Documents/referbib"
 export SUDO_ASKPASS="$HOME/.local/bin/tools/dmenupass"
 export NOTMUCH_CONFIG="$HOME/.config/notmuch-config"
 export GTK2_RC_FILES="$HOME/.config/gtk-2.0/gtkrc-2.0"
+export QT_QPA_PLATFORMTHEME="qt5ct"
 
 # less/man colors
 export LESS=-R
@@ -33,8 +34,8 @@ wmd () {
 # Start graphical server if i3 not already running.
 
 if [ "$(tty)" = "/dev/tty1" ]; then
-# 	exec ~/.prompt.sh
-	exec ~/.prompt.sh
+	startx
+	exit
 fi
 # Switch escape and caps if tty:
 sudo -n loadkeys ~/.local/bin/ttymaps.kmap 2>/dev/null

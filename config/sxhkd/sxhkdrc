@@ -2,7 +2,7 @@
 super + Return
 	$TERMINAL
 super + d
-	rofi -show run -theme sidebar
+	rofi -show drun -theme Adapta-Nokto
 super + r
 	$TERMINAL -e $FILE
 super + e
@@ -17,12 +17,12 @@ super + y
 	$TERMINAL -e calcurse
 super + shift + a
 	$TERMINAL -e pulsemixer; pkill -RTMIN+10 i3blocks
-super + shift + c
-	camtoggle
-super + shift + e
-	tutorialvids
-super + w
-	webby | xargs -r $BROWSER
+# super + shift + c
+	# camtoggle
+# super + shift + e
+	# tutorialvids
+# super + w
+	 $BROWSER
 super + shift + w
 	$BROWSER
 super + shift + g
@@ -36,7 +36,7 @@ super + Scroll_Lock
 super + Insert
 	showclip
 super + shift + x
-	prompt "Shutdown computer?" "sudo -A shutdown -h now"
+	prompt "Shutdown computer?" "sudo -A poweroff -h now"
 super + shift + BackSpace
 	prompt "Reboot computer?" "sudo -A reboot"
 super + x
@@ -44,8 +44,6 @@ super + x
 XF86Launch1
 	xset dpms force off
 
-super + period
-	socialmedia
 # Recording
 # Take screenshot
 Print
@@ -81,7 +79,6 @@ super + {_,shift +} bracketright
 # Seek backward in song
 super + {_,shift +} bracketleft
 	lmc back {10,120}
-
 # Function keys
 # Show readme
 super + F1
@@ -95,7 +92,7 @@ super + F4
 	prompt 'Hibernate computer?' 'sudo systemctl suspend'
 # Restart/rescan wifi/eth networks
 super + F5
-	sudo -A systemctl restart NetworkManager
+	sudo -A rc-service NetworkManager restart
 # Start torrent daemon/open interface
 super + F6
 	torwrap

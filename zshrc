@@ -1,8 +1,9 @@
 #Remove weird strings and letters due to pywal
-# Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=5000
 SAVEHIST=5000
+setopt inc_append_history
+setopt share_history
 bindkey -v
 #Load zgen
 source "/home/me/.config/zgen/zgen.zsh"
@@ -13,12 +14,12 @@ source "/home/me/.profile"
 source "/home/me/.config/aliasrc"
 source "/home/me/.config/shortcutrc"
 source ~/.purepower
-# The following lines were added by compinstall
 zstyle :compinstall filename '/home/me/.zshrc'
+export ZGEN_PLUGIN_UPDATE_DAYS=30
+export ZGEN_SYSTEM_UPDATE_DAYS=30
 
 autoload -Uz compinit
 compinit
-## End of lines added by compinstall
 
 ##Load zgen plugins
 ## if ! zgen saved; then
@@ -51,4 +52,8 @@ if ! zgen saved; then
 	zgen load changyuheng/fz
 	zgen load laurenkt/zsh-vimto
 	zgen load agkozak/zsh-z
+	zgen load unixorn/autoupdate-zgen
 fi
+
+# Several environment variables
+export QEMU_IRIX=/usr/bin/qemu-irix
