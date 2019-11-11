@@ -2,7 +2,7 @@
 super + Return
 	$TERMINAL
 super + d
-	rofi -show drun -theme Adapta-Nokto
+	rofi -show drun -theme Adapta-Nokto -show-icons
 super + r
 	$TERMINAL -e $FILE
 super + e
