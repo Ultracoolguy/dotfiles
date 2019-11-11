@@ -1,4 +1,4 @@
-
+" Needed for ycmd to work with Python2
 let mapleader =","
 
 if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
@@ -9,16 +9,17 @@ endif
 
 call plug#begin('~/.config/nvim/plugged')
 Plug 'tpope/vim-surround'
-Plug 'scrooloose/nerdtree'
+" Plug 'scrooloose/nerdtree'
 Plug 'junegunn/goyo.vim'
 Plug 'PotatoesMaster/i3-vim-syntax'
-Plug 'jreybert/vimagit'
+" Plug 'jreybert/vimagit'
 Plug 'LukeSmithxyz/vimling'
-Plug 'vimwiki/vimwiki'
+" Plug 'vimwiki/vimwiki'
 Plug 'bling/vim-airline'
 Plug 'tpope/vim-commentary'
-Plug 'vifm/vifm.vim'
+Plug 'ptzz/lf.vim'
 Plug 'kovetskiy/sxhkd-vim'
+Plug 'Valloric/YouCompleteMe'
 call plug#end()
 
 set bg=light
@@ -31,6 +32,7 @@ set clipboard+=unnamedplus
 	nnoremap c "_c
 	set nocompatible
 	filetype plugin on
+	colo slate
 	syntax on
 	set encoding=utf-8
 	set number relativenumber
