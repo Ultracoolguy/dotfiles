@@ -1,4 +1,10 @@
-#Remove weird strings and letters due to pywal
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block, everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 HISTFILE=~/.histfile
 HISTSIZE=5000
 SAVEHIST=5000
@@ -13,25 +19,12 @@ setopt prompt_subst
 source "/home/me/.profile"
 source "/home/me/.config/aliasrc"
 source "/home/me/.config/shortcutrc"
-source ~/.purepower
 zstyle :compinstall filename '/home/me/.zshrc'
 export ZGEN_PLUGIN_UPDATE_DAYS=30
 export ZGEN_SYSTEM_UPDATE_DAYS=30
 
 autoload -Uz compinit
 compinit
-
-##Load zgen plugins
-## if ! zgen saved; then
-#	zgen oh-my-zsh
-#	zgen oh-my-zsh themes/amuse
-#	#zgen oh-my-zsh plugins/sudo
-#	#zgen oh-my-zsh plugins/vi-mode
-#	#zgen oh-my-zsh plugins/common-aliases
-#	zgen load zsh-users/zsh-syntax-highlighting
-#	zgen load chrissicool/zsh-bash
-#	zgen save
-#fi
 
 #Load zgen plugins
 if ! zgen saved; then
@@ -57,3 +50,6 @@ fi
 
 # Several environment variables
 export QEMU_IRIX=/usr/bin/qemu-irix
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
