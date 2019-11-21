@@ -8,6 +8,7 @@ fi
 HISTFILE=~/.histfile
 HISTSIZE=5000
 SAVEHIST=5000
+ENABLE_CORRECTION="true"
 setopt inc_append_history
 setopt share_history
 bindkey -v
@@ -35,7 +36,7 @@ if ! zgen saved; then
 	#zgen load maniat1k/birame birame
 	zgen load chrissicool/zsh-256color
 	zgen load zsh-users/zsh-autosuggestions
-	 zgen load Tarrasch/zsh-bd
+	zgen load Tarrasch/zsh-bd
 	zgen load zuxfoucault/colored-man-pages_mod
 	zgen load zdharma/fast-syntax-highlighting
 	zgen load zsh-users/zsh-history-substring-search
