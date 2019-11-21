@@ -63,3 +63,4 @@ map x $$f
 map X !$f
 map o &mimeopen $f
 map O $mimeopen --ask $f
+map E $stripped=($echo "${f%.*}") atool -X $stripped $f
