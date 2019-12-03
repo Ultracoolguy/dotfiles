@@ -15,6 +15,7 @@ export NOTMUCH_CONFIG="$HOME/.config/notmuch-config"
 export GTK2_RC_FILES="$HOME/.config/gtk-2.0/gtkrc-2.0"
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export GOPATH="$HOME/.local/go"
+export DFM_DIR=~/.dotfiles
 #Needed so that makepkg doesn't complain that PACKAGER doesn't have a proper format
 unset PACKAGER
 # less/man colors
