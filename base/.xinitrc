@@ -10,10 +10,10 @@ dunst &			# dunst for notifications
 sxhkd -m 1 &		# Bind keys with sxhkd
 xset r rate 300 50 &	# Speed xrate up
 unclutter &		# Remove mouse when idle
-# mpd-module-update &	# Check for when to update the mpd module. Will add when I add the command
 nvidia-settings -a '[gpu:0]/GPUMemoryTransferRateOffset[3]=500' &
 nvidia-settings -a '[gpu:0]/GraphicsClockOffset[3]=150' &
 wal --theme base16-oceanicnext
+mpd &
 blueman-applet &
 
 [ -f "$HOME/.xprofile" ] && . ~/.xprofile
